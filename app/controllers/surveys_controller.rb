@@ -31,11 +31,10 @@ class SurveysController < ApplicationController
     end
   end
 
-
   # PATCH/PUT /surveys/1
   # PATCH/PUT /surveys/1.json
   def update
-    if params[:survey] && params[:survey][:login] && params[:survey][:orig_password] == @survey.password
+    if params[:survey] && params[:survey][:login] && params[:survey][:login][:orig_password] == @survey.password
       if @survey.update(survey_params)
         redirect_to @survey, notice: 'Survey was successfully updated.'
       else
