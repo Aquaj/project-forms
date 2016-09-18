@@ -14,23 +14,37 @@
   </thead>
 
   <tbody>
-    <% @surveys_current.each do |survey| %>
+    <% if @surveys_current.present? %>
       <tr>
-        <td><%= survey.title %></td>
-        <td><%= survey.end_date %></td>
-        <td><%= link_to 'Show', survey %></td>
-        <td><%= link_to 'Edit', login_survey_path(survey) %></td>
-        <td><%= link_to 'Answer', new_survey_survey_answer_path(survey) %></td>
+        <td colspan="5">Current surveys :</td>
+      </tr>
+      <% @surveys_current.each do |survey| %>
+        <tr>
+          <td><%= survey.title %></td>
+          <td><%= survey.end_date %></td>
+          <td><%= link_to 'Show', survey %></td>
+          <td><%= link_to 'Edit', login_survey_path(survey) %></td>
+          <td><%= link_to 'Answer', new_survey_survey_answer_path(survey) %></td>
+        </tr>
+      <% end %>
+      
+      <tr>
+        <td colspan="5"><hr></td>
       </tr>
     <% end %>
 
-    <% @surveys_finished.each do |survey| %>
+    <% if @surveys_finished.present? %>
       <tr>
-        <td><%= survey.title %></td>
-        <td><%= survey.end_date %></td>
-        <td><%= link_to 'Show', survey %></td>
-        <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
+        <td colspan="5">Past surveys :</td>
       </tr>
+      <% @surveys_finished.each do |survey| %>
+        <tr>
+          <td><%= survey.title %></td>
+          <td><%= survey.end_date %></td>
+          <td><%= link_to 'Show', survey %></td>
+          <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
