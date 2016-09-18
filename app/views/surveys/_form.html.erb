@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+	  <div class="col-sm-6 col-sd-col-sm-offset-3">
+	    <%= simple_form_for(@survey) do |f| %>
+		  <%= f.simple_fields_for :login do |l| %>
+		    <%= l.input :orig_password, input_html: { value: @orig_password }, as: :hidden %>
+  	      <% end %>
+	      <%= f.input :title %>
+	      <%= f.input :end_date %>
+	      <%= f.input :password %>
+		  <%= f.input :description %>
+		  <%= f.simple_fields_for :questions do |question| %>
+		    <%= render 'question_fields', f: question %>
+		  <%end%>
+		  <div class="links"> <%=link_to_add_association "add question", f, :questions %></div>
+		  <div class="actions">
+		    <%= f.button :submit, disable_with: "Please wait..." %>
+		  </div>
+	    <% end %>
+	</div>
+  </div>
+</div>	

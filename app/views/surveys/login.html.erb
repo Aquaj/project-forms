@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+	  <h2>Please input password :</h2>
+
+	  <%= simple_form_for :login, url: edit_survey_path(@survey) do |f| %>
+	    <%= f.input :password %>
+
+        <%= f.button :submit, "Edit the survey", disable_with: "please wait" %>
+	  <% end %>
+	</div>
+  </div>
+</div>

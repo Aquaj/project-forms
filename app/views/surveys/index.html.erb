@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bienvenue sur Mcl Form !</h1>
+
+<table>
+  <thead>
+    <%= link_to 'New Survey', new_survey_path %>
+
+    <tr>
+      <th>Title</th>
+      <th>End date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @surveys_current.each do |survey| %>
+      <tr>
+        <td><%= survey.title %></td>
+        <td><%= survey.end_date %></td>
+        <td><%= link_to 'Show', survey %></td>
+        <td><%= link_to 'Edit', login_survey_path(survey) %></td>
+        <td><%= link_to 'Answer', new_survey_survey_answer_path(survey) %></td>
+      </tr>
+    <% end %>
+
+    <% @surveys_finished.each do |survey| %>
+      <tr>
+        <td><%= survey.title %></td>
+        <td><%= survey.end_date %></td>
+        <td><%= link_to 'Show', survey %></td>
+        <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

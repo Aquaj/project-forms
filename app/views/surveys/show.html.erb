@@ -1,0 +1,23 @@
+<h2><%= @survey.title %></h2>
+<p>
+	<%= @survey.description %>
+</p>
+<p>
+	<strong> Number of answers: </strong>
+	<%= @survey.answers.count %>
+</p>
+<ol>
+	<% @survey.questions.each do |question| %>
+	  <li>
+	  	<%= question.content %>
+	  </li>
+	  <ul>
+	    <% question.choices.each do |choice| %>
+	      <% total_count = question.answers.count.to_f %>
+          <li><%= choice.content %>: <%= total_count.zero? ? 0 : (choice.answers.count/total_count*100).round %>% (<%= choice.answers.count %>)</li> <!-- Permet d'afficher le pourcentage de réponse à la question -->
+	    <% end %>
+	  </ul>
+	<% end %>
+</ol>
+
+<%= link_to 'Back', surveys_path %>
