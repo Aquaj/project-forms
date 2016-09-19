@@ -1,4 +1,4 @@
-# Controller for our SurveyAnswers.
+# Controller for our SurveyAnswer s.
 # Allows a user to create a SurveyAnswer but we don't wish to
 # let them edit their answers or delete them.
 class SurveyAnswersController < ApplicationController
