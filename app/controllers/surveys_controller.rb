@@ -64,7 +64,7 @@ class SurveysController < ApplicationController
       render :edit
     else
       # Back to login if the password is wrong.
-      redirect_to :login, notice: 'Please login before editing survey.'
+      redirect_to login_survey_path(@survey), notice: 'Please login before editing survey.'
     end
   end
 
@@ -82,7 +82,7 @@ class SurveysController < ApplicationController
        params[:survey][:login][:orig_password] == @survey.password
       actual_update
     else
-      redirect_to :login, notice: 'Please provide correct password before updating survey.'
+      redirect_to login_survey_path(@login), notice: 'Please provide correct password before updating survey.'
     end
   end
 
