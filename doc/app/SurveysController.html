@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>class SurveysController - Rails Application Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-create">#create</a>
+    
+    <li ><a href="#method-i-edit">#edit</a>
+    
+    <li ><a href="#method-i-index">#index</a>
+    
+    <li ><a href="#method-i-login">#login</a>
+    
+    <li ><a href="#method-i-new">#new</a>
+    
+    <li ><a href="#method-i-show">#show</a>
+    
+    <li ><a href="#method-i-update">#update</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-SurveysController">
+  <h1 id="class-SurveysController" class="class">
+    class SurveysController
+  </h1>
+
+  <section class="description">
+    
+<p>Controller for the <a href="Survey.html">Survey</a> s. Allows us to list
+the surveys ( <a href="SurveysController.html#method-i-index">index</a> ),
+create new surveys ( <a href="SurveysController.html#method-i-new">new</a>
+/ <a href="SurveysController.html#method-i-create">create</a> ), and to
+update them ( <a href="SurveysController.html#method-i-login">login</a> /
+<a href="SurveysController.html#method-i-edit">edit</a> / <a
+href="SurveysController.html#method-i-update">update</a> ) the non-CRUD
+action <a href="SurveysController.html#method-i-login">login</a> is there
+to put in a login screen when the user tries to edit a <a
+href="Survey.html">Survey</a> to ensure they have the right to do so.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>POST /surveys</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/controllers/surveys_controller.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
+  <span class="ruby-ivar">@survey</span> = <span class="ruby-constant">Survey</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">survey_params</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@survey</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@survey</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Survey was successfully created.&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-edit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /surveys/:id/edit POST /surveys/:id/edit</p>
+
+<p>Displays the edition form if the user went through the <a
+href="SurveysController.html#method-i-login">login</a> process first and
+filled in the password correctly, else redirects to <a
+href="SurveysController.html#method-i-login">login</a> again.</p>
+
+<p>The POST route is there to work properly when going through <a
+href="SurveysController.html#method-i-login">login</a> first.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="edit-source">
+            <pre><span class="ruby-comment"># File app/controllers/surveys_controller.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:login</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-comment"># Ensure params[:login] is present.</span>
+     <span class="ruby-identifier">params</span>[<span class="ruby-value">:login</span>][<span class="ruby-value">:password</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@survey</span>.<span class="ruby-identifier">password</span>
+    <span class="ruby-comment"># Setting an in-page proof user logged in.</span>
+    <span class="ruby-ivar">@orig_password</span> = <span class="ruby-ivar">@survey</span>.<span class="ruby-identifier">password</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:edit</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># Back to login if the password is wrong.</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:login</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Please login before editing survey.&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /surveys</p>
+
+<p>Lists all surveys in two lists :</p>
+
+<pre>- ongoing (end_date not yet passed)
+- done    (end_date passed)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/surveys_controller.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+  <span class="ruby-ivar">@surveys_current</span> = <span class="ruby-constant">Survey</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;end_date &gt; ?&#39;</span>, <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>)
+  <span class="ruby-ivar">@surveys_finished</span> = <span class="ruby-constant">Survey</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;end_date &lt; ?&#39;</span>, <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-login" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /surveys/:id/login</p>
+
+<p>Allows us to screen the users trying to edit the form. Displays a form with
+a single field : password that will then be sent to the <a
+href="SurveysController.html#method-i-edit">edit</a> action.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="login-source">
+            <pre><span class="ruby-comment"># File app/controllers/surveys_controller.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">login</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /surveys/new</p>
+
+<p>Displays a form with the possibility to add <a
+href="Question.html">Question</a> s and subsequent <a
+href="Choice.html">Choice</a> s for said <a
+href="Question.html">Question</a> s. (Nested forms)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/surveys_controller.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@survey</span> = <span class="ruby-constant">Survey</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-show" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /surveys/:id</p>
+
+<p>Displays the survey&#39;s info : a list of questions + the answer
+statistics.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File app/controllers/surveys_controller.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>PATCH/PUT /surveys/:id</p>
+
+<p>Allows update to a <a href="Survey.html">Survey</a> if the right password
+was provided during <a
+href="SurveysController.html#method-i-login">login</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File app/controllers/surveys_controller.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+  <span class="ruby-comment"># Boils down to :</span>
+  <span class="ruby-comment"># &quot;if the user went through login with right password before editing:</span>
+  <span class="ruby-comment">#   proceed with update</span>
+  <span class="ruby-comment">#  else:</span>
+  <span class="ruby-comment">#   let them log in again&quot;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:survey</span>] <span class="ruby-operator">&amp;&amp;</span>         <span class="ruby-comment"># Ensures params[:survey] is present.</span>
+     <span class="ruby-identifier">params</span>[<span class="ruby-value">:survey</span>][<span class="ruby-value">:login</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-comment"># Ensures params[:survey][:login] is present.</span>
+     <span class="ruby-identifier">params</span>[<span class="ruby-value">:survey</span>][<span class="ruby-value">:login</span>][<span class="ruby-value">:orig_password</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@survey</span>.<span class="ruby-identifier">password</span>
+    <span class="ruby-identifier">actual_update</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:login</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Please provide correct password before updating survey.&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
