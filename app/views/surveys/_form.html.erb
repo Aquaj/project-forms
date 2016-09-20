@@ -1,22 +1,40 @@
-<div class="container">
+<%= simple_form_for(@survey) do |f| %>
+    
+    <!-- Login verification fields for {SurveyController#update} -->
+    <%= f.simple_fields_for :login do |l| %>
+      <%= l.input :orig_password, input_html: { value: @orig_password }, as: :hidden %>
+    <% end %>
+    
   <div class="row">
-	  <div class="col-sm-6 col-sd-col-sm-offset-3">
-	    <%= simple_form_for(@survey) do |f| %>
-		  <%= f.simple_fields_for :login do |l| %>
-		    <%= l.input :orig_password, input_html: { value: @orig_password }, as: :hidden %>
-  	      <% end %>
-	      <%= f.input :title %>
-	      <%= f.input :end_date %>
-	      <%= f.input :password %>
-		  <%= f.input :description %>
-		  <%= f.simple_fields_for :questions do |question| %>
-		    <%= render 'question_fields', f: question %>
-		  <%end%>
-		  <div class="links"> <%=link_to_add_association "add question", f, :questions %></div>
-		  <div class="actions">
-		    <%= f.button :submit, disable_with: "Please wait..." %>
-		  </div>
-	    <% end %>
-	</div>
+    <div class="col-sm-4">
+      <%= f.input :title %>
+    </div>
+    <div class="col-sm-5">
+      <%= f.input :end_date %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.input :password, as: :string %>
+    </div>
+    <div class="col-sm-12">
+      <%= f.input :description %>
+    </div>
   </div>
-</div>	
+
+  <div class="row">  
+    <div class="container-fluid">
+      <%= f.simple_fields_for :questions do |question| %>
+        <%= render 'question_fields', f: question %>
+      <% end %>
+    </div>
+  </div>
+
+   <div class="new-questions">
+ 	<%=link_to_add_association "New question", f, :questions, class: "btn btn-primary", style: "width: 100%; margin-top: 1em;" %>
+   </div>
+
+  <div class="row">
+    <div class="col-xs-12" style="padding-top: 1em;">
+      <%= f.button :submit, data: { disable_with: "Please wait..." }, class: "btn btn-primary", style: "width: 100%;" %>
+    </div>
+  </div>
+<% end %>

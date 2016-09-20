@@ -1,14 +1,27 @@
-<p id="notice"><%= notice %></p>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-	  <h2>Please input password :</h2>
+<div class="row">
+  <div class="col-sm-11" style="height: 100%; display: flex; justify-content: center; align-items: center; text-align: center;">  
+    <h1 style="font-size: 2em;">Please input password</h1>
+  </div>
+  <div class="col-sm-1" style="height: 100%; display: flex; justify-content: center; align-items: center;">  
+    <%= link_to 'Back to index', surveys_path, class: "btn btn-primary", style: "margin: 0.8em 0.8em; font-size: 1.2em;" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4">  
+    <% if notice.present? %>
+      <div id="notice"><p><%= notice %></p></div>
+    <% end %>
+  </div>
+</div>
 
-	  <%= simple_form_for :login, url: edit_survey_path(@survey) do |f| %>
-	    <%= f.input :password %>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h2></h2>
 
-        <%= f.button :submit, "Edit the survey", disable_with: "please wait" %>
-	  <% end %>
-	</div>
+    <%= simple_form_for :login, url: edit_survey_path(@survey) do |f| %>
+      <%= f.input :password %>
+
+      <%= f.button :submit, "Edit the survey", data: { disable_with: "Please wait..." }, class: "btn btn-primary", style: "width: 100%;" %>
+    <% end %>
   </div>
 </div>

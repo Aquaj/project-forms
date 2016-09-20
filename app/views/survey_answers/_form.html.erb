@@ -1,16 +1,24 @@
-<div class="container">
-  <div class="row">
-	<div class="col-sm-6 col-sm-offset-3">
-	  <%= simple_form_for [@survey, @survey_answer] do |f| %>
-	    <h2><%= @survey.title %></h2>
- 	    <p> <%= @survey.description %> </p>
-	    <ol>
-		  <%= f.simple_fields_for :answers do |answer| %>
-		    <%= render "answer_fields", f: answer %> 
-		  <% end %>
-		</ol>
-		<%= f.button :submit, disable_with: "please wait" %>
-      <% end %>
-	</div>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+      <h2><%= @survey.title %></h2>
   </div>
-</div>	
+  <div class="col-sm-6 col-sm-offset-3">
+      <h4><%= @survey.description %></h4>
+  </div>
+</div>
+
+<%= simple_form_for [@survey, @survey_answer] do |f| %>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= f.simple_fields_for :answers do |answer| %>
+        <%= render "answer_fields", f: answer %> 
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= f.button :submit, data: { disable_with: "Please wait.." } %>
+    </div>
+  </div>
+<% end %>

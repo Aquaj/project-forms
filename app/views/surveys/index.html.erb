@@ -1,54 +1,105 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Welcome on Survey Project !</h1>
-
-<table>
-  <thead>
-    <%= link_to 'New Survey', new_survey_path %>
-
-    <tr>
-      <th>Title</th>
-      <th>End date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% if @surveys_current.present? %>
-      <tr>
-        <td colspan="5">Current surveys :</td>
-      </tr>
-      <% @surveys_current.each do |survey| %>
-        <tr>
-          <td><%= survey.title %></td>
-          <td><%= survey.end_date %></td>
-          <td><%= link_to 'Show', survey %></td>
-          <td><%= link_to 'Edit', login_survey_path(survey) %></td>
-          <td><%= link_to 'Answer', new_survey_survey_answer_path(survey) %></td>
-        </tr>
-      <% end %>
-      
-      <tr>
-        <td colspan="5"><hr></td>
-      </tr>
+<div class="row">
+  <div class="col-sm-11" style="height: 100%; display: flex; justify-content: center; align-items: center; text-align: center;">  
+    <h1 style="font-size: 2em;">Welcome on Survey Project !</h1>
+  </div>
+  <div class="col-sm-1" style="height: 100%; display: flex; justify-content: center; align-items: center;">  
+    <%= link_to 'New Survey', new_survey_path, class: "btn btn-primary", style: "margin: 0.8em 0.8em; font-size: 1.2em;" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4"> 
+    <% if notice.present? %> 
+      <div id="notice"><p><%= notice %></p></div>
     <% end %>
+  </div>
+</div>
 
-    <% if @surveys_finished.present? %>
-      <tr>
-        <td colspan="5">Past surveys :</td>
-      </tr>
-      <% @surveys_finished.each do |survey| %>
-        <tr>
-          <td><%= survey.title %></td>
-          <td><%= survey.end_date %></td>
-          <td><%= link_to 'Show', survey %></td>
-          <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
-        </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
+<% if @surveys_current.present? %>
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6">
+      <h2 style="text-align: center;">Current surveys :</h2>
+    </div>
+  </div>
 
-<br>
+  <div class="row">
+    <div class="hidden-xs col-sm-6">
+      <h3 style="text-align: center;">Title</h3>
+    </div>
+    <div class="hidden-xs col-sm-6">
+      <h3 style="text-align: center;">End date</h3>
+    </div>
+  </div>
 
+    
+  <% @surveys_current.each do |survey| %>
+    <div class="row">
+      <div class="col-sm-4">
+        <h3 style="text-align: center; padding: 0 25px; font-size: 1.4em;"><%= survey.title %></h3>
+      </div>
+      <div class="hidden-xs col-sm-4">
+        <h3 style="text-align: center;">------------------------</h3>
+      </div>
+      <div class="col-sm-4">
+        <h3 style="text-align: center; padding: 0 25px; font-size: 1.4em;"><%= survey.end_date %></h3>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-sm-4 col-xs-4">
+        <%= link_to 'Show', survey, class: "btn btn-primary", style: "width: 100%; font-size: 1.4em;" %>
+      </div>
+      <div class="col-sm-4 col-xs-4">
+        <%= link_to 'Edit', login_survey_path(survey), class: "btn btn-primary", style: "width: 100%; font-size: 1.4em;" %>
+      </div>
+      <div class="col-sm-4 col-xs-4">
+        <%= link_to 'Answer', new_survey_survey_answer_path(survey), class: "btn btn-primary", style: "width: 100%; font-size: 1.4em;" %> 
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-12"> <hr> </div>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="col-xs-12" style="height: 2em;"></div>
+
+<% if @surveys_finished.present? %>
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6">
+      <h2 style="text-align: center;">Past surveys :</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="hidden-xs col-sm-4">
+      <h3 style="text-align: center;">Title</h3>
+    </div>
+    <div class="hidden-xs col-sm-4">
+      <h3 style="text-align: center;">End date</h3>
+    </div>
+    <div class="hidden-xs col-sm-4">
+      <h3 style="text-align: center;">Statistics</h3>
+    </div>
+  </div>
+
+    
+  <% @surveys_current.each do |survey| %>
+    <div class="row">
+      <div class="col-sm-4">
+        <h3 style="text-align: center; padding: 0 25px; font-size: 1.4em;"><%= survey.title %></h3>
+      </div>
+      <div class="col-sm-4">
+        <h3 style="text-align: center; padding: 0 25px; font-size: 1.4em;"><%= survey.end_date %></h3>
+      </div>
+      <div class="col-sm-4">
+        <%= link_to 'Show', survey, class: "btn btn-primary", style: "width: 100%; font-size: 1.4em;" %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-12"> <hr> </div>
+    </div>
+  <% end %>
+<% end %>
+</div>

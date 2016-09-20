@@ -1,4 +1,5 @@
 <% question = f.object.question %>
-<li><%= question.content %></li>
-<%= f.input :choice_id, collection: question.choices.pluck(:content, :id), as: :radio_buttons %>
+<h4><strong><%= question.content %></strong></h4>
+<%= f.input :choice_id, collection: question.choices.pluck(:content, :id), as: :radio_buttons, label: false %>
+
 <%= f.input :question_id, as: :hidden %>
