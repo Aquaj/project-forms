@@ -20,6 +20,10 @@ The project uses _Ruby 2.2.3_ and _Rails 4.2.4_
 * Launch the server.
   >rails server
 
+### Database diagram
+
+![Database diagram of the project](/doc/diagram.svg?raw=true "Database diagram")
+
  
 ##### Footnotes
 
