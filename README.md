@@ -22,7 +22,7 @@ The project uses _Ruby 2.2.3_ and _Rails 4.2.4_
 
 ### Database diagram
 
-![Database diagram of the project](/doc/diagram.png?raw=true "Database diagram")
+![Database diagram of the project](doc/diagram.png "Database diagram")
 
  
 ##### Footnotes
