@@ -85,7 +85,7 @@ class SurveysController < ApplicationController
        params[:survey][:login][:orig_password] == @survey.password
       actual_update
     else
-      redirect_to login_survey_path(@login), notice: 'Please provide correct password before updating survey.'
+      redirect_to login_survey_path(@survey), notice: 'Please provide correct password before updating survey.'
     end
   end
 
