@@ -33,5 +33,6 @@ The project uses _Ruby 2.2.3_ and _Rails 4.2.4_
 <sup>2</sup>: My direct hand was only applied for:  
 - **the Heroku config of the project** to show them how quick a project can be put online as a motivation source.  
 - **the adding of documentation** in hope they can use it to retain the concepts seen during this week-end as long as possible.
+- **the design of the views**, some of the students already knew Bootstrap so I designed the views to be both easy to code with it and agreeable to read.
 
 <sup>3</sup>: This Rails application consisted simply of `Message`s categorized under `Label`s with basic `scaffold`-generated views. 
