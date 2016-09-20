@@ -1,5 +1,5 @@
 # Class representing a survey.
-# A Survey is a set of Question s, each of which have Choice s.
+# A {Survey} is a set of {Question}s, each of which have {Choice}s.
 class Survey < ActiveRecord::Base
   validates :title, :password, :end_date, presence: true
   has_many :questions, dependent: :destroy

@@ -1,4 +1,4 @@
-# Class representing a Question, part of a Survey.
+# Class representing a {Question}, part of a {Survey}.
 class Question < ActiveRecord::Base
   belongs_to :survey
   has_many :choices, dependent: :destroy

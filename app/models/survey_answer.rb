@@ -1,6 +1,6 @@
-# Class representing an answer to a Survey, not specific Answer s to Question s
-# but rather an user's global Answer.
-# Think exam answer sheet ( SurveyAnswer ) vs question answers ( Answer ).
+# Class representing an answer to a {Survey}, not specific {Answer}s to {Question}s
+# but rather an user's global answer.
+# Think exam answer sheet ({SurveyAnswer}) vs question answers ({Answer}).
 class SurveyAnswer < ActiveRecord::Base
   belongs_to :survey
   has_many :answers, dependent: :destroy

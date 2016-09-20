@@ -1,12 +1,12 @@
-# Controller for our SurveyAnswer s.
-# Allows a user to create a SurveyAnswer but we don't wish to
+# Controller for our {SurveyAnswer}s.
+# Allows a user to create a {SurveyAnswer} but we don't wish to
 # let them edit their answers or delete them.
 class SurveyAnswersController < ApplicationController
   before_action :find_survey, only: [:new, :create]
 
-  # GET /survey/:survey_id/survey_answers/new
+  # +GET /survey/:survey_id/survey_answers/new+
   #
-  # Displays a form with nested Answer forms.
+  # Displays a form with nested {Answer} forms.
   def new
     @survey_answer = SurveyAnswer.new
     @survey.questions.order(:position).each do |question|
@@ -14,9 +14,9 @@ class SurveyAnswersController < ApplicationController
     end
   end
 
-  # POST survey/:survey_id/survey_answers
+  # +POST survey/:survey_id/survey_answers+
   #
-  # Creates a SurveyAnswer for the Survey :survey_id
+  # Creates a {SurveyAnswer} for the {Survey} +:survey_id+
   def create
     @survey_answer = @survey.answers.new(survey_answer_params)
 
@@ -29,16 +29,16 @@ class SurveyAnswersController < ApplicationController
 
   private
 
-  # Since we are in nested routes (SurveyAnswer nested in Survey), this method
-  # sets @survey to the Survey object we're currently working with.
+  # Since we are in nested routes ({SurveyAnswer} nested in {Survey}), this method
+  # sets +@survey+ to the {Survey} object we're currently working with.
   def find_survey
     @survey = Survey.find(params[:survey_id])
   end
 
-  # SurveyAnswer params to avoid people sending in unpredictable possibly
+  # {SurveyAnswer} params to avoid people sending in unpredictable possibly
   # malicious data through the forms.
   #
-  # Includes the Answer attributes since we nested forms.
+  # Includes the {Answer} attributes since we nested the forms.
   def survey_answer_params
     params
       .require(:survey_answer)
