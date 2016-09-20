@@ -31,7 +31,7 @@ The project uses _Ruby 2.2.3_ and _Rails 4.2.4_
 <sup>1</sup>: This implies gathering up at one of the students' place and downing both pizza and Monster energy drinks while putting them through exercises that would allow them to grok concepts such as the MVC design pattern or the handling of a HTTP request by the server and subsequently the router.
 
 <sup>2</sup>: My direct hand was only applied for:  
-- **the Heroku config of the project** to show them how quick a project can be put online as a motivation source.  
+- **the Heroku config of the project** to show them how quick a project can quickly be [put online](http://survey-project-licence.herokuapp.com/) as a motivation source.  
 - **the adding of documentation** in hope they can use it to retain the concepts seen during this week-end as long as possible.
 - **the design of the views**, some of the students already knew Bootstrap so I designed the views to be both easy to code with it and agreeable to read.
 
