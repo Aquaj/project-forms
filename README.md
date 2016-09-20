@@ -8,7 +8,7 @@ They previously had created another minimal Rails application<sup>3</sup> under 
 The project uses _Ruby 2.2.3_ and _Rails 4.2.4_
 
 ### Getting the project to run.
-* [[Install Ruby 2.2.3|Installing Ruby]].
+* [Install Ruby 2.2.3](https://github.com/Aquaj/project-forms/wiki/Installing-Ruby).
 
 
 * Install the bundler gem.
