@@ -49,7 +49,7 @@ class SurveysController < ApplicationController
   # Displays a form with a single field : password that will
   # then be sent to the {#edit} action.
   def login
-    redirect_to surveys_path if @survey.end_date > Time.now # Can't login/edit if not currently going.
+    redirect_to surveys_path if @survey.end_date < Time.now # Can't login/edit if not currently going.
   end
 
   # +GET /surveys/:id/edit+
