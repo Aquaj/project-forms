@@ -8,6 +8,7 @@ class SurveyAnswersController < ApplicationController
   #
   # Displays a form with nested {Answer} forms.
   def new
+    redirect_to surveys_path if @survey.end_date > Time.now # Can't answer if not currently going.
     @survey_answer = SurveyAnswer.new
     @survey.questions.order(:position).each do |question|
       @survey_answer.answers.new(question: question)
